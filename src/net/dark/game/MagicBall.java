@@ -3,7 +3,7 @@ package net.dark.game;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Ball {
+public class MagicBall {
 private static Scanner scannerUserInformation = new Scanner(System.in);
     private static boolean flagFirst = false;
     private static boolean flag = false;
@@ -27,6 +27,7 @@ private static Scanner scannerUserInformation = new Scanner(System.in);
         }
         showUserAskQestion();
         userAskQestion();
+        forUseAnswer();
         String userAnswerYesNo = userWriteSolutionYesNo();
         flag = checkUserSolution(userAnswerYesNo);
         while (true) {
@@ -75,10 +76,8 @@ private static Scanner scannerUserInformation = new Scanner(System.in);
         flag = false;
         switch (userAnswerYesNo) {
             case "Y":
-                System.out.println("good choice, man");
                 return true;
             case "y":
-                System.out.println("good choice");
                 return true;
             case "N":
                 System.out.println("Game Over");
