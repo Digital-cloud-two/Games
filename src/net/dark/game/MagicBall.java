@@ -11,7 +11,7 @@ public class MagicBall {
     }
 
     private static void begin() {
-
+        
     }
 
     private static void showWelcomeText() {
@@ -31,18 +31,18 @@ public class MagicBall {
         return userAnswerYesNo;
     }
 
-    private static void checkUserAnswer(String userAnswerYesNo) {
+    private static int checkUserAnswer(String userAnswerYesNo) {
         switch (userAnswerYesNo) {
             case "Y":
-                break;
+                return 1;
             case "y":
-                break;
+                return 1;
             case "N":
-                break;
+                return 2;
             case "n":
-                break;
+                return 2;
             default:
-                System.out.println("wrong!!!");
+                return 3;
         }
     }
 
