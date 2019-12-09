@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-public class MagicBall {
+public class MagicBall extends Games {
     private static Scanner scannerUserInformation = new Scanner(System.in);
 
     void starting() {
