@@ -1,5 +1,6 @@
 package net.dark.game;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -13,7 +14,7 @@ public class MagicBall {
     private static void begin() {
         showWelcomeText();
         showDoYouWannaPlay();
-        while(true) {
+        while (true) {
             int checkedUserAnswer = checkUserAnswer(userAnswer());
             while (true) {
                 if (checkedUserAnswer == 1) {
@@ -70,23 +71,30 @@ public class MagicBall {
         System.out.println("Ask a question:");
     }
 
-    private static void  userAskQuestion() {
+    private static void userAskQuestion() {
         String string = scannerUserInformation.next();
     }
 
     private static void giveUserAnswer() {
         Random random = new Random();
         int randomNumber = random.nextInt(6);
-        String array[]={"Very doubtful","Outlook is good","Outlook is not very good",
-                "Ask again later","Concentrate and ask again","Most likely","Do not count on it"};
-        System.out.println(array[randomNumber]);
+        ArrayList<String> stringArrayList = new ArrayList<String>();
+        stringArrayList.add("Very doubtful");
+        stringArrayList.add("Outlook is good");
+        stringArrayList.add("Outlook is not very good");
+        stringArrayList.add("Ask again later");
+        stringArrayList.add("Concentrate and ask again");
+        stringArrayList.add("Most likely");
+        stringArrayList.add("Do not count on it");
+
+        System.out.println(stringArrayList.get(randomNumber));
     }
 
-    private static void showDoYouWannaTryAgain(){
+    private static void showDoYouWannaTryAgain() {
         System.out.println("DO you wanna try again? \n ((Yes = Y) or (No = N))");
     }
 
-    private static void showTextWrong(){
+    private static void showTextWrong() {
         System.out.println("Something is wrong!!!");
     }
 }
