@@ -1,4 +1,4 @@
 package net.dark.game;
 
-public class Zodiac {
+public class Zodiac extends Games {
 }
