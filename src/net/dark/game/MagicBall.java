@@ -11,7 +11,27 @@ public class MagicBall {
     }
 
     private static void begin() {
-        
+        showWelcomeText();
+        showDoYouWannaPlay();
+        while(true) {
+            int checkedUserAnswer = checkUserAnswer(userAnswer());
+            while (true) {
+                if (checkedUserAnswer == 1) {
+                    showAskQuestion();
+                    userAskQuestion();
+                    giveUserAnswer();
+                    break;
+                } else if (checkedUserAnswer == 2) {
+                    showGoodByeText();
+                    return;
+                } else {
+                    showTextWrong();
+                    break;
+                }
+            }
+            showDoYouWannaTryAgain();
+            continue;
+        }
     }
 
     private static void showWelcomeText() {
@@ -50,8 +70,8 @@ public class MagicBall {
         System.out.println("Ask a question:");
     }
 
-    private static void userAskQuestion() {
-        String string = scannerUserInformation.toString();
+    private static void  userAskQuestion() {
+        String string = scannerUserInformation.next();
     }
 
     private static void giveUserAnswer() {
@@ -84,5 +104,9 @@ public class MagicBall {
 
     private static void showDoYouWannaTryAgain(){
         System.out.println("DO you wanna try again? \n ((Yes = Y) or (No = N))");
+    }
+
+    private static void showTextWrong(){
+        System.out.println("Something is wrong!!!");
     }
 }
