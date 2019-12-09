@@ -77,29 +77,9 @@ public class MagicBall {
     private static void giveUserAnswer() {
         Random random = new Random();
         int randomNumber = random.nextInt(6);
-        switch (randomNumber) {
-            case 0:
-                System.out.println("Very doubtful");
-                break;
-            case 1:
-                System.out.println("Outlook is good");
-                break;
-            case 2:
-                System.out.println("Outlook is not very good");
-                break;
-            case 3:
-                System.out.println("Ask again later");
-                break;
-            case 4:
-                System.out.println("Concentrate and ask again");
-                break;
-            case 5:
-                System.out.println("Most likely");
-                break;
-            case 6:
-                System.out.println("Do not count on it");
-                break;
-        }
+        String array[]={"Very doubtful","Outlook is good","Outlook is not very good",
+                "Ask again later","Concentrate and ask again","Most likely","Do not count on it"};
+        System.out.println(array[randomNumber]);
     }
 
     private static void showDoYouWannaTryAgain(){
