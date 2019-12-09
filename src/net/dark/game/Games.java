@@ -1,4 +1,4 @@
 package net.dark.game;
 
-public class Games {
+public abstract class Games {
 }
