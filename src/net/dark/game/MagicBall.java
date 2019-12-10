@@ -7,7 +7,8 @@ import java.util.Scanner;
 public class MagicBall extends Games {
     private static Scanner scannerUserInformation = new Scanner(System.in);
 
-    void starting() {
+    @Override
+    public void starting() {
         begin();
     }
 
