@@ -7,7 +7,8 @@ import java.util.Scanner;
 public class MagicBall extends Games {
     private static Scanner scannerUserInformation = new Scanner(System.in);
 
-    void starting() {
+    @Override
+    public void starting() {
         begin();
     }
 
@@ -23,7 +24,7 @@ public class MagicBall extends Games {
                     giveUserAnswer();
                     break;
                 } else if (checkedUserAnswer == 2) {
-                    showGoodByeText();
+                    showNextTimeText();
                     return;
                 } else {
                     showTextWrong();
@@ -36,11 +37,12 @@ public class MagicBall extends Games {
     }
 
     private static void showWelcomeText() {
-        System.out.println("You're welcome!!!");
+        System.out.println("******************* MAGIC BALL *****************************" +
+                "\nYou're welcome!!!");
     }
 
-    private static void showGoodByeText() {
-        System.out.println("Good bye!!!");
+    private static void showNextTimeText() {
+        System.out.println("Next time!!!");
     }
 
     private static void showDoYouWannaPlay() {
@@ -91,7 +93,8 @@ public class MagicBall extends Games {
     }
 
     private static void showDoYouWannaTryAgain() {
-        System.out.println("DO you wanna try again?\n((Yes = Y) or (No = N))");
+        System.out.println("////////////////// MAGIC BALL ////////////////////////////" +
+                "\nDo you wanna try again?\n((Yes = Y) or (No = N))");
     }
 
     private static void showTextWrong() {
