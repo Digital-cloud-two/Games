@@ -24,6 +24,10 @@ public class ChooseTheGame {
                     game = new Zodiac();
                     methodShowPolymorphism(game);
                     break;
+
+                } else if (userSolution == 0) {
+                    showGoodByeText();
+                    return; // Exit
                 } else {
                     showTextWrong();
                     break;
@@ -34,10 +38,10 @@ public class ChooseTheGame {
                 int checedUserAnswer = checkUserAnswer(userAnswer());
                 if (checedUserAnswer == 1) {
                     break;
-                }else if (checedUserAnswer == 2){
+                } else if (checedUserAnswer == 2) {
                     showGoodByeText();
                     return;
-                }else{
+                } else {
                     showTextWrong();
                     continue;
                 }
@@ -46,7 +50,7 @@ public class ChooseTheGame {
         }
     }
 
-    private static void methodShowPolymorphism(Games game){
+    private static void methodShowPolymorphism(Games game) {
         game.starting();
     }
 
@@ -54,12 +58,14 @@ public class ChooseTheGame {
         System.out.println("Hi there!!!");
     }
 
-    private static void showGoodByeText(){
+    private static void showGoodByeText() {
         System.out.println("Good bye !!!");
     }
 
     private static void showChooseTheGame() {
-        System.out.println("1.Magic ball\n2.Zodiac\nYour solution is:");
+        System.out.println("Choose the game:  1.Magic ball\n" +
+                "                  2.Zodiac\n" +
+                "                  0.Exit\nYour solution is:");
     }
 
     private static String userSolution() {
@@ -69,6 +75,8 @@ public class ChooseTheGame {
 
     private static int checkUserSoulution(String stringUserSollution) {
         switch (stringUserSollution) {
+            case "0":
+                return 0;
             case "1":
                 return 1;
             case "2":
@@ -87,7 +95,7 @@ public class ChooseTheGame {
     }
 
     private static void doYouWannaSolveAgain() {
-        System.out.println("Do you want to solve what kind of game will you play? ((Yes = Y) or (No = N))");
+        System.out.println("Do you want to solve what kind of game you'll play? ((Yes = Y) or (No = N))");
     }
 
     private static String userAnswer() {
@@ -97,6 +105,8 @@ public class ChooseTheGame {
 
     private static int checkUserAnswer(String stringUserAnswerYesNo) {
         switch (stringUserAnswerYesNo) {
+            case "0":
+                return 0;
             case "Y":
                 return 1;
             case "y":
