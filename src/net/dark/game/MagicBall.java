@@ -77,14 +77,12 @@ public class MagicBall extends Games {
         String string = scannerUserInformation.next();
     }
 
-    ///////////////* E n c a p s u l a t i o n *//////////////////
-
+    ///////////////////// E n c a p s u l a t i o n \\\\\\\\\\\\\\\\\\\\\\\\\\\\
     private static ArrayList<String> stringArrayList = new ArrayList<String>();
 
     public static ArrayList<String> getStringArrayList() {
         return stringArrayList;
-    }
-
+    }  // Now this method is useless
 
     public static void setStringArrayList(String stringArrayList) {
         MagicBall.stringArrayList.add(stringArrayList);
@@ -93,17 +91,9 @@ public class MagicBall extends Games {
     private static void giveUserAnswer() {
         Random random = new Random();
         int randomNumber = random.nextInt(6);
-//        ArrayList<String> stringArrayList = new ArrayList<String>();
-//        stringArrayList.add("Very doubtful");
-//        stringArrayList.add("Outlook is good");
-//        stringArrayList.add("Outlook is not very good");
-//        stringArrayList.add("Ask again later");
-//        stringArrayList.add("Concentrate and ask again");
-//        stringArrayList.add("Most likely");
-//        stringArrayList.add("Do not count on it");
-
         System.out.println(stringArrayList.get(randomNumber));
     }
+    /*\\\\\\\\\\\\\\\\\\\\\\\ The end is encapsulation //////////////////////////*/
 
     private static void showDoYouWannaTryAgain() {
         System.out.println("////////////////// MAGIC BALL ////////////////////////////" +
