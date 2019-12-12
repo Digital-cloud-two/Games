@@ -77,6 +77,12 @@ public class ChooseTheGame {
         switch (stringUserSollution) {
             case "0":
                 return 0;
+            case "e":
+                return 0;
+            case "Exit":
+                return 0;
+            case "exit":
+                return 0;
             case "1":
                 return 1;
             case "2":
@@ -85,7 +91,11 @@ public class ChooseTheGame {
                 return 1;
             case "Zodiac":
                 return 2;
+            case "z":
+                return 2;
             case "magic ball":
+                return 1;
+            case "m":
                 return 1;
             case "zodiac":
                 return 2;
@@ -105,8 +115,6 @@ public class ChooseTheGame {
 
     private static int checkUserAnswer(String stringUserAnswerYesNo) {
         switch (stringUserAnswerYesNo) {
-            case "0":
-                return 0;
             case "Y":
                 return 1;
             case "y":
