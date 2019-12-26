@@ -59,7 +59,7 @@ public class ChooseTheGame {
     }
 
     private static void showGoodByeText() {
-        System.out.println("Good bye !!!");
+        System.out.println("Good bye !!! \n--The End--");
     }
 
     private static void showChooseTheGame() {
