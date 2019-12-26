@@ -105,7 +105,7 @@ public class ChooseTheGame {
     }
 
     private static void doYouWannaSolveAgain() {
-        System.out.println("Do you want to solve what kind of game you'll play? ((Yes = Y) or (No = N))");
+        System.out.println("Do you want to play another game? ((Yes = Y) or (No = N))");
     }
 
     private static String userAnswer() {
