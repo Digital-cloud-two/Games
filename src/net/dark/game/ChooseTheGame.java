@@ -14,7 +14,7 @@ public class ChooseTheGame {
         showWelcomeText();
         while (true) {
             showChooseTheGame();
-            int userSolution = checkUserSoulution(userSolution());
+            int userSolution = checkUserSolution(userSolution());
             while (true) {
                 if (userSolution == 1) {
                     game = new MagicBall();
@@ -73,8 +73,8 @@ public class ChooseTheGame {
         return stringUserSolution;
     }
 
-    private static int checkUserSoulution(String stringUserSollution) {
-        switch (stringUserSollution) {
+    private static int checkUserSolution(String stringUserSolution) {
+        switch (stringUserSolution) {
             case "0":
                 return 0;
             case "e":
