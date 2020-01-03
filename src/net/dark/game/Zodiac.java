@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Zodiac extends Games {
 
-    private static Scanner scannerUserInformation = new Scanner(System.in);
+    //private static Scanner scannerUserInformation = new Scanner(System.in);
 
     @Override
     public void starting() {
@@ -12,7 +12,14 @@ public class Zodiac extends Games {
     }
 
     private static void begin() {
-
+        showWelcomeText();
+        showTextWhatDoYouWannaKnow();
+        takeAndCheckUserSolution();
+        showTextBirthday();
+        showTextDayBirthday();
+        userEnterDay();
+        showTextMonthBirthday();
+        userEnterMonth();
     }
 
     private static void showWelcomeText() {
@@ -39,9 +46,9 @@ public class Zodiac extends Games {
     private static void takeAndCheckUserSolution() {
         int userSolutionWhatHeWants;
         while (true) {
-            Scanner scannerUserInformation = new Scanner(System.in);
+            Scanner scannerUserInformationLocation = new Scanner(System.in);
             try {
-                userSolutionWhatHeWants = scannerUserInformation.nextInt();
+                userSolutionWhatHeWants = scannerUserInformationLocation.nextInt();
             } catch (Exception e) {                                         // What kind of mistake is better to catch?
                 System.out.println("Something is wrong!!!  Try again.");
                 continue;
@@ -57,5 +64,61 @@ public class Zodiac extends Games {
         }
     }
 
+    // ********  version 1   ******************************************************************
 
+    private static void showTextBirthday() {
+        System.out.println("We need to know when is the birthday. ");
+    }
+
+    private static void showTextDayBirthday() {
+        System.out.println("Enter the day of birthday:");
+    }
+
+    private static void userEnterDay() {
+        int userDayBirthday;
+        while (true) {
+            Scanner scannerUserInformationLocation = new Scanner(System.in);
+            try {
+                userDayBirthday = scannerUserInformationLocation.nextInt();
+            } catch (Exception e) {
+                System.out.println("Something is wrong!!!  Try again.");
+                continue;
+            }
+
+            if (userDayBirthday < 1 || userDayBirthday > 31) {
+                System.out.println("The day of Birthday is wrong!!!  Try again.");
+                continue;
+            }
+            return;
+        }
+    }
+
+    private static void showTextMonthBirthday(){
+        System.out.println("Enter the month of birthday:");
+    }
+
+    private static void userEnterMonth(){
+        int userMonthBirthday;
+        while (true) {
+            Scanner scannerUserInformationLocation = new Scanner(System.in);
+            try {
+                userMonthBirthday = scannerUserInformationLocation.nextInt();
+            } catch (Exception e) {
+                System.out.println("Something is wrong!!!  Try again.");
+                continue;
+            }
+
+            if (userMonthBirthday < 1 || userMonthBirthday > 12) {
+                System.out.println("The month of Birthday is wrong!!!  Try again.");
+                continue;
+            }
+            return;
+        }
+    }
+
+    private static void showTextTheSign(){}
+
+    //???????????   Question   ?????????????????????????????????????????????????????????????
+
+    private static void showTextDoYouWannaTryAgain(){}
 }
