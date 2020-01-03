@@ -12,14 +12,18 @@ public class Zodiac extends Games {
     }
 
     private static void begin() {
-        showWelcomeText();
-        showTextWhatDoYouWannaKnow();
-        takeAndCheckUserSolution();
-        showTextBirthday();
-        showTextDayBirthday();
-        userEnterDay();
-        showTextMonthBirthday();
-        userEnterMonth();
+//        showWelcomeText();
+//        showTextWhatDoYouWannaKnow();
+//        takeAndCheckUserSolution();
+//        showTextBirthday();
+//        showTextDayBirthday();
+//        userEnterDay();
+//        showTextMonthBirthday();
+//        userEnterMonth();
+        // Question  ???????????
+        showTextDoYouWannaTryAgain();
+        System.out.println( checkUserAnswerYesNo(userEnterAnswerYesNo()));
+
     }
 
     private static void showWelcomeText() {
@@ -120,5 +124,21 @@ public class Zodiac extends Games {
 
     //???????????   Question   ?????????????????????????????????????????????????????????????
 
-    private static void showTextDoYouWannaTryAgain(){}
+    private static void showTextDoYouWannaTryAgain(){
+        System.out.println("Do you wanna try again?  ((Yes = Y) or (No = N))");
+    }
+
+    private static String userEnterAnswerYesNo(){
+        Scanner scannerUserInformation = new Scanner(System.in);
+        String userAnswerYesNo = scannerUserInformation.next();
+        return userAnswerYesNo;
+    }
+
+    private static int checkUserAnswerYesNo(String userAnswer){
+        if (userAnswer == "Yes" || userAnswer =="Y" || userAnswer =="y"){
+            return 1;
+        }
+        return 0;
+    }
+
 }
