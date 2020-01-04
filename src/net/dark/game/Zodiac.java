@@ -22,7 +22,7 @@ public class Zodiac extends Games {
 //        userEnterMonth();
         // Question  ???????????
         showTextDoYouWannaTryAgain();
-        System.out.println( checkUserAnswerYesNo(userEnterAnswerYesNo()));
+        System.out.println(checkUserAnswerYesNo(userEnterAnswerYesNo()));
 
     }
 
@@ -97,11 +97,11 @@ public class Zodiac extends Games {
         }
     }
 
-    private static void showTextMonthBirthday(){
+    private static void showTextMonthBirthday() {
         System.out.println("Enter the month of birthday:");
     }
 
-    private static void userEnterMonth(){
+    private static void userEnterMonth() {
         int userMonthBirthday;
         while (true) {
             Scanner scannerUserInformationLocation = new Scanner(System.in);
@@ -120,25 +120,31 @@ public class Zodiac extends Games {
         }
     }
 
-    private static void showTextTheSign(){}
+    private static void showTextTheSign() {
+    }
 
     //???????????   Question   ?????????????????????????????????????????????????????????????
 
-    private static void showTextDoYouWannaTryAgain(){
+    private static void showTextDoYouWannaTryAgain() {
         System.out.println("Do you wanna try again?  ((Yes = Y) or (No = N))");
     }
 
-    private static String userEnterAnswerYesNo(){
+    private static String userEnterAnswerYesNo() {
         Scanner scannerUserInformation = new Scanner(System.in);
         String userAnswerYesNo = scannerUserInformation.next();
         return userAnswerYesNo;
     }
 
-    private static int checkUserAnswerYesNo(String userAnswer){
-        if (userAnswer == "Yes" || userAnswer =="Y" || userAnswer =="y"){
-            return 1;
-        }
-        return 0;
-    }
+    private static String checkUserAnswerYesNo(String userAnswer) {
 
+        if (userAnswer.equals("YES") || userAnswer.equals("Yes") || userAnswer.equals("Y") || userAnswer.equals("y")) {
+            return "YES";
+        } else if (userAnswer.equals("NO") || (userAnswer.equals("No") || userAnswer.equals("N") || userAnswer.equals("n"))) {
+            return "NO";
+        }
+        return "WRONG";
+    }
+    //?????????  The end question  ?????????????????????????????????????????????????????????????
+
+    // ********  version 2   ******************************************************************
 }
