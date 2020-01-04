@@ -14,7 +14,7 @@ public class ChooseTheGame {
         showWelcomeText();
         while (true) {
             showChooseTheGame();
-            int userSolution = checkUserSoulution(userSolution());
+            int userSolution = checkUserSolution(userSolution());
             while (true) {
                 if (userSolution == 1) {
                     game = new MagicBall();
@@ -59,7 +59,7 @@ public class ChooseTheGame {
     }
 
     private static void showGoodByeText() {
-        System.out.println("Good bye !!!");
+        System.out.println("Good bye !!! \n--The End--");
     }
 
     private static void showChooseTheGame() {
@@ -73,8 +73,8 @@ public class ChooseTheGame {
         return stringUserSolution;
     }
 
-    private static int checkUserSoulution(String stringUserSollution) {
-        switch (stringUserSollution) {
+    private static int checkUserSolution(String stringUserSolution) {
+        switch (stringUserSolution) {
             case "0":
                 return 0;
             case "e":
@@ -105,7 +105,7 @@ public class ChooseTheGame {
     }
 
     private static void doYouWannaSolveAgain() {
-        System.out.println("Do you want to solve what kind of game you'll play? ((Yes = Y) or (No = N))");
+        System.out.println("Do you want to play another game? ((Yes = Y) or (No = N))");
     }
 
     private static String userAnswer() {

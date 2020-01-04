@@ -46,7 +46,7 @@ public class MagicBall extends Games {
     }
 
     private static void showDoYouWannaPlay() {
-        System.out.println("Do you wanna play the game?\n((Yes = Y) or (No = N))");
+        System.out.println("Do you wanna play the game? ((Yes = Y) or (No = N))");
     }
 
     private static String userAnswer() {
@@ -97,7 +97,7 @@ public class MagicBall extends Games {
 
     private static void showDoYouWannaTryAgain() {
         System.out.println("////////////////// MAGIC BALL ////////////////////////////" +
-                "\nDo you wanna try again?\n((Yes = Y) or (No = N))");
+                "\nDo you wanna try again?  ((Yes = Y) or (No = N))");
     }
 
     private static void showTextWrong() {
