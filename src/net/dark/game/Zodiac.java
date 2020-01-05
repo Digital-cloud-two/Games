@@ -21,8 +21,11 @@ public class Zodiac extends Games {
 //        showTextMonthBirthday();
 //        userEnterMonth();
         // Question  ???????????
-        showTextDoYouWannaTryAgain();
-        System.out.println(checkUserAnswerYesNo(userEnterAnswerYesNo()));
+//        showTextDoYouWannaTryAgain();
+//        System.out.println(checkUserAnswerYesNo(userEnterAnswerYesNo()));
+        // ver 2
+        showTextChooseSign();
+        userEnterNumberSign();
 
     }
 
@@ -81,9 +84,9 @@ public class Zodiac extends Games {
     private static void userEnterDay() {
         int userDayBirthday;
         while (true) {
-            Scanner scannerUserInformationLocation = new Scanner(System.in);
+            Scanner scannerUserInformationDay = new Scanner(System.in);
             try {
-                userDayBirthday = scannerUserInformationLocation.nextInt();
+                userDayBirthday = scannerUserInformationDay.nextInt();
             } catch (Exception e) {
                 System.out.println("Something is wrong!!!  Try again.");
                 continue;
@@ -104,9 +107,9 @@ public class Zodiac extends Games {
     private static void userEnterMonth() {
         int userMonthBirthday;
         while (true) {
-            Scanner scannerUserInformationLocation = new Scanner(System.in);
+            Scanner scannerUserInformationBirthday = new Scanner(System.in);
             try {
-                userMonthBirthday = scannerUserInformationLocation.nextInt();
+                userMonthBirthday = scannerUserInformationBirthday.nextInt();
             } catch (Exception e) {
                 System.out.println("Something is wrong!!!  Try again.");
                 continue;
@@ -147,4 +150,30 @@ public class Zodiac extends Games {
     //?????????  The end question  ????????????????????????????????????????????????????????????
 
     // ********  version 2   ******************************************************************
+
+    private static void showTextChooseSign() {
+        System.out.println("Choose the number of zodiac sign:" +
+                "\n| 1. Aquarius | 2. Pisces | 3. Aries | 4. Taurus | 5. Gemini | 6. Cancer" +
+                " | 7. Leo | 8. Virgo | 9. Libra | 10. Scorpio | 11. Sagittarius | 12. Capricorn |");
+    }
+
+    private static void userEnterNumberSign() {
+        int userEnterNumberSign;
+        while (true) {
+            Scanner scannerUserInformationNumberSing = new Scanner(System.in);
+            try {
+                userEnterNumberSign = scannerUserInformationNumberSing.nextInt();
+            } catch (Exception e) {
+                System.out.println("Something is wrong!!!  Try again.");
+                continue;
+            }
+
+            if (userEnterNumberSign < 1 || userEnterNumberSign > 12) {
+                System.out.println("The number of zodiac sign is wrong!!!  Try again.");
+                continue;
+            }
+            return;
+        }
+    }
+    
 }
