@@ -1,5 +1,14 @@
 package net.dark.game;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class Zodiac extends Games {
@@ -26,6 +35,7 @@ public class Zodiac extends Games {
         // ver 2
         showTextChooseSign();
         userEnterNumberSign();
+        showTextOnAstrology(1);
 
     }
 
@@ -153,8 +163,8 @@ public class Zodiac extends Games {
 
     private static void showTextChooseSign() {
         System.out.println("Choose the number of zodiac sign:" +
-                "\n| 1. Aquarius | 2. Pisces | 3. Aries | 4. Taurus | 5. Gemini | 6. Cancer" +
-                " | 7. Leo | 8. Virgo | 9. Libra | 10. Scorpio | 11. Sagittarius | 12. Capricorn |");
+                "\n| 1.Aquarius | 2.Pisces | 3.Aries | 4.Taurus | 5.Gemini | 6.Cancer" +
+                " | 7.Leo | 8.Virgo | 9.Libra | 10.Scorpio | 11.Sagittarius | 12.Capricorn |");
     }
 
     private static void userEnterNumberSign() {
@@ -175,5 +185,55 @@ public class Zodiac extends Games {
             return;
         }
     }
-    
+
+    private static void showTextOnAstrology(int numberSign) {
+        JSONParser jsonParser = new JSONParser();
+
+
+        try {
+            FileReader fileReader = new FileReader("ZODIAC SIGNS.json");
+            Object object = jsonParser.parse(fileReader);
+            JSONObject jsonObject =(JSONObject) object;
+
+            System.out.println(jsonObject.get("aquarius"));
+
+//            for(Iterator iterator = jsonObject.keySet().iterator(); iterator.hasNext();){
+//                String key = (String) iterator.next();
+//                System.out.println(jsonObject.get(key));
+//            }
+
+            JSONArray jsonArray = (JSONArray) object;
+            System.out.println(jsonArray);
+//            parserZodiacSins((JSONObject) object);
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void parserZodiacSins(JSONObject zodiacJsonObject){}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
