@@ -35,7 +35,7 @@ public class Zodiac extends Games {
         // ver 2
         showTextChooseSign();
         userEnterNumberSign();
-        showTextOnAstrology(1);
+        workWithJsonFile();
 
     }
 
@@ -186,24 +186,15 @@ public class Zodiac extends Games {
         }
     }
 
-    private static void showTextOnAstrology(int numberSign) {
+    private static void workWithJsonFile() {
         JSONParser jsonParser = new JSONParser();
 
         try {
             FileReader fileReader = new FileReader("ZODIAC SIGNS.json");
             Object object = jsonParser.parse(fileReader);
-//            JSONObject jsonObject =(JSONObject) object;
-//
-//            System.out.println(jsonObject.get("aquarius"));
-
-//            for(Iterator iterator = jsonObject.keySet().iterator(); iterator.hasNext();){
-//                String key = (String) iterator.next();
-//                System.out.println(jsonObject.get(key));
-//            }
 
             JSONArray jsonArray = (JSONArray) object;
-            System.out.println(jsonArray);  // Show JSONArray
-//            parserZodiacSigns((JSONObject) object);
+//            System.out.println(jsonArray);  // Show JSONArray
 
             jsonArray.forEach(emp -> parserZodiacSigns((JSONObject) emp));
 
@@ -217,41 +208,16 @@ public class Zodiac extends Games {
     }
 
     private static void parserZodiacSigns(JSONObject zodiacJsonObject) {
-//        String[] keyaArray = {"aquarius","pisces","aries","taurus","gemini","cancer","leo",
-//                "virgo","libra","scorpio","sagittarius","capricorn"};
-
-//        for (int i=0; i<keyaArray.length; i++) {
 
         JSONObject jsonObject = (JSONObject) zodiacJsonObject.get("zodiac");
 
         String stringSign = (String) jsonObject.get("sign");
-        System.out.println("\n"+stringSign);
+        System.out.println("\n" + stringSign);
 
         String stringDate = (String) jsonObject.get("date_range");
         System.out.println(stringDate);
 
         String stringInformation = (String) jsonObject.get("information");
         System.out.println(stringInformation);
-//        }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
