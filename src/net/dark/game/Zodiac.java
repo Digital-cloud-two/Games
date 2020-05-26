@@ -8,7 +8,7 @@ import org.json.simple.parser.ParseException;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Iterator;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Zodiac extends Games {
@@ -24,18 +24,22 @@ public class Zodiac extends Games {
 //        showWelcomeText();
 //        showTextWhatDoYouWannaKnow();
 //        takeAndCheckUserSolution();
+//        // ver
 //        showTextBirthday();
 //        showTextDayBirthday();
 //        userEnterDay();
 //        showTextMonthBirthday();
 //        userEnterMonth();
-        // Question  ???????????
+////         Question  ???????????
+//
 //        showTextDoYouWannaTryAgain();
 //        System.out.println(checkUserAnswerYesNo(userEnterAnswerYesNo()));
         // ver 2
         showTextChooseSign();
         userEnterNumberSign();
         workWithJsonFile();
+        getNumberOfInformation();
+ //       testArrayInformation();
 
     }
 
@@ -81,7 +85,7 @@ public class Zodiac extends Games {
         }
     }
 
-    // ********  version 1   ******************************************************************
+    // ********   version 1   ******************************************************************
 
     private static void showTextBirthday() {
         System.out.println("We need to know when is the birthday. ");
@@ -167,21 +171,30 @@ public class Zodiac extends Games {
                 " | 7.Leo | 8.Virgo | 9.Libra | 10.Scorpio | 11.Sagittarius | 12.Capricorn |");
     }
 
+    private static int userEnterNumberSign;
+
     private static void userEnterNumberSign() {
-        int userEnterNumberSign;
+
         while (true) {
             Scanner scannerUserInformationNumberSing = new Scanner(System.in);
             try {
                 userEnterNumberSign = scannerUserInformationNumberSing.nextInt();
             } catch (Exception e) {
                 System.out.println("Something is wrong!!!  Try again.");
+                System.out.println("Choose the number of zodiac sign:" +
+                        "\n| 1.Aquarius | 2.Pisces | 3.Aries | 4.Taurus | 5.Gemini | 6.Cancer" +
+                        " | 7.Leo | 8.Virgo | 9.Libra | 10.Scorpio | 11.Sagittarius | 12.Capricorn |");
                 continue;
             }
 
             if (userEnterNumberSign < 1 || userEnterNumberSign > 12) {
                 System.out.println("The number of zodiac sign is wrong!!!  Try again.");
+                System.out.println("Choose the number of zodiac sign:" +
+                        "\n| 1.Aquarius | 2.Pisces | 3.Aries | 4.Taurus | 5.Gemini | 6.Cancer" +
+                        " | 7.Leo | 8.Virgo | 9.Libra | 10.Scorpio | 11.Sagittarius | 12.Capricorn |");
                 continue;
             }
+  //                    System.out.println(userEnterNumberSign);
             return;
         }
     }
@@ -194,9 +207,12 @@ public class Zodiac extends Games {
             Object object = jsonParser.parse(fileReader);
 
             JSONArray jsonArray = (JSONArray) object;
-//            System.out.println(jsonArray);  // Show JSONArray
+            //           System.out.println(jsonArray);  // Show JSONArray
 
-            jsonArray.forEach(emp -> parserZodiacSigns((JSONObject) emp));
+            //          jsonArray.forEach(emp -> parserZodiacSigns((JSONObject) emp));
+//            jsonArray.forEach(emp -> parserSignNames((JSONObject) emp)); //Creat an array of names
+            jsonArray.forEach(emp -> parserSignsInformation((JSONObject) emp));
+
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -220,4 +236,38 @@ public class Zodiac extends Games {
         String stringInformation = (String) jsonObject.get("information");
         System.out.println(stringInformation);
     }
+
+    private static ArrayList<String> stringArrayListZodiacNames = new ArrayList<String>();
+
+    private static void parserSignNames(JSONObject zodiacJsonObject) {
+
+        JSONObject jsonObject = (JSONObject) zodiacJsonObject.get("zodiac");
+        String stringSign = (String) jsonObject.get("sign");
+        stringArrayListZodiacNames.add(stringSign);
+    }
+
+    private static void testArray() {
+        System.out.println(stringArrayListZodiacNames);
+
+    }
+
+    private static ArrayList<String> stringArrayListZodiacInformation = new ArrayList<String>();
+
+    private static void parserSignsInformation(JSONObject zodiacJsonObject) {
+
+        JSONObject jsonObject = (JSONObject) zodiacJsonObject.get("zodiac");
+        String stringInformation = (String) jsonObject.get("information");
+        stringArrayListZodiacInformation.add(stringInformation);
+
+    }
+
+    private static void testArrayInformation() {
+        System.out.println("\n" + stringArrayListZodiacInformation);
+    }
+
+    private static void getNumberOfInformation(){
+        System.out.println(stringArrayListZodiacInformation.get(userEnterNumberSign -1));
+    }
+
 }
+

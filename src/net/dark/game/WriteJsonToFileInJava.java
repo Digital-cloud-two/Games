@@ -90,7 +90,8 @@ public class WriteJsonToFileInJava {
         JSONObject signLeoDetails = new JSONObject();
         signLeoDetails.put("sign","Leo");
         signLeoDetails.put("date_range"," 07.23 - 08.22 ");
-        signLeoDetails.put("information","Strengths: Creative, passionate, generous, warm-hearted, cheerful, humorous. Weaknesses: Arrogant, stubborn, self-centered, lazy, inflexible. Leo likes: Theater, taking holidays, being admired, expensive things, bright colors, fun with friends. Leo dislikes: Being ignored, facing difficult reality, not being treated like a king or queen\n" +
+        signLeoDetails.put("information","LEO \n" +
+                "  Strengths: Creative, passionate, generous, warm-hearted, cheerful, humorous. Weaknesses: Arrogant, stubborn, self-centered, lazy, inflexible. Leo likes: Theater, taking holidays, being admired, expensive things, bright colors, fun with friends. Leo dislikes: Being ignored, facing difficult reality, not being treated like a king or queen\n" +
                 "People born under the sign of Leo are natural born leaders. They are dramatic, creative, self-confident, dominant and extremely difficult to resist, able to achieve anything they want to in any area of life they commit to. There is a specific strength to a Leo and their \"king of the jungle\" status. Leo often has many friends for they are generous and loyal. Self-confident and attractive, this is a Sun sign capable of uniting different groups of people and leading them as one towards a shared cause, and their healthy sense of humor makes collaboration with other people even easier." );
 
         JSONObject signLeoObject = new JSONObject();
