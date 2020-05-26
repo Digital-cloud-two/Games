@@ -24,7 +24,7 @@ public class Zodiac extends Games {
 //        showWelcomeText();
 //        showTextWhatDoYouWannaKnow();
 //        takeAndCheckUserSolution();
-//        // ver
+//        // ver 1
 //        showTextBirthday();
 //        showTextDayBirthday();
 //        userEnterDay();
@@ -39,7 +39,6 @@ public class Zodiac extends Games {
         userEnterNumberSign();
         workWithJsonFile();
         getNumberOfInformation();
- //       testArrayInformation();
 
     }
 
@@ -268,6 +267,7 @@ public class Zodiac extends Games {
     private static void getNumberOfInformation(){
         System.out.println(stringArrayListZodiacInformation.get(userEnterNumberSign -1));
     }
+    // ********  ver 2 The end   ******************************************************************
 
 }
 
