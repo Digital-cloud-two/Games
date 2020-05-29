@@ -21,25 +21,45 @@ public class Zodiac extends Games {
     }
 
     private static void begin() {
-//        showWelcomeText();
-//        showTextWhatDoYouWannaKnow();
-//        takeAndCheckUserSolution();
+        showWelcomeText();
+        while(true) {
+            showTextWhatDoYouWannaKnow();
+            int userSolution = takeAndCheckUserSolution();
+            if (userSolution == 1) {
+                System.out.println("The number one doesn't work!!!");
+                continue;
+            } else if (userSolution == 2){
+                showTextChooseSign();
+                userEnterNumberSign();
+                workWithJsonFile();
+                getNumberOfInformation();
+                continue;
+            } else if (userSolution == 3){
+                System.out.println("The number three doesn't work!!!");
+                continue;
+            }else if (userSolution == 0){
+                return;
+            }
 //        // ver 1
 //        showTextBirthday();
 //        showTextDayBirthday();
 //        userEnterDay();
 //        showTextMonthBirthday();
 //        userEnterMonth();
+//        transformationFromIntIntoString();
+//        checkDayNumber();
+
 ////         Question  ???????????
-//
+
 //        showTextDoYouWannaTryAgain();
 //        System.out.println(checkUserAnswerYesNo(userEnterAnswerYesNo()));
-        // ver 2
-        showTextChooseSign();
-        userEnterNumberSign();
-        workWithJsonFile();
-        getNumberOfInformation();
-
+//        // ver 2
+//        showTextChooseSign();
+//        userEnterNumberSign();
+//        workWithJsonFile();
+//        getNumberOfInformation();
+//        //end 2
+        }
     }
 
     private static void showWelcomeText() {
@@ -56,14 +76,14 @@ public class Zodiac extends Games {
     }
 
     private static void showTextWhatDoYouWannaKnow() {
-        System.out.println("Choose the number what you wanna know:" +
-                "\n                   1. FIND YOUR SIGN" +
+        System.out.println("\n Choose the number what you wanna know:" +
+                "\n                   1. FIND YOUR SIGN"+" ***  Sorry but Now it doesn't work" +
                 "\n                   2. INFORMATION ON ASTROLOGY" +
-                "\n                   3. LOVE COMPATIBILITY" +
-                "\n                   4. Exit");
+                "\n                   3. LOVE COMPATIBILITY"+"  ***  Now it's block" +
+                "\n                   0. Exit");
     }
 
-    private static void takeAndCheckUserSolution() {
+    private static int takeAndCheckUserSolution() {
         int userSolutionWhatHeWants;
         while (true) {
             Scanner scannerUserInformationLocation = new Scanner(System.in);
@@ -71,16 +91,18 @@ public class Zodiac extends Games {
                 userSolutionWhatHeWants = scannerUserInformationLocation.nextInt();
             } catch (Exception e) {                                         // What kind of mistake is better to catch?
                 System.out.println("Something is wrong!!!  Try again.");
+                showTextWhatDoYouWannaKnow();
                 continue;
             }
 
-            if (userSolutionWhatHeWants >= 1 & userSolutionWhatHeWants <= 4) {
+            if (userSolutionWhatHeWants >= 0 & userSolutionWhatHeWants <= 3) {
 
             } else {
                 System.out.println("Chose is wrong! Try again.");
+                showTextWhatDoYouWannaKnow();
                 continue;
             }
-            return;
+            return userSolutionWhatHeWants;
         }
     }
 
@@ -94,8 +116,9 @@ public class Zodiac extends Games {
         System.out.println("Enter the day of birthday:");
     }
 
+    private static int userDayBirthday;
+
     private static void userEnterDay() {
-        int userDayBirthday;
         while (true) {
             Scanner scannerUserInformationDay = new Scanner(System.in);
             try {
@@ -117,8 +140,9 @@ public class Zodiac extends Games {
         System.out.println("Enter the month of birthday:");
     }
 
+    private static int userMonthBirthday;
+
     private static void userEnterMonth() {
-        int userMonthBirthday;
         while (true) {
             Scanner scannerUserInformationBirthday = new Scanner(System.in);
             try {
@@ -133,6 +157,22 @@ public class Zodiac extends Games {
                 continue;
             }
             return;
+        }
+    }
+
+    private static void transformationFromIntIntoString(){
+        Integer dayBirthday = userDayBirthday;
+        String strDayBirthday = dayBirthday.toString();
+
+        Integer monthBirthday = userMonthBirthday;
+        String strMonthBirthday = monthBirthday.toString();
+    }
+
+    private static void checkDayNumber(){
+        if (userDayBirthday<10){
+            System.out.println(userDayBirthday+"  1");
+        }else {
+            System.out.println(userDayBirthday+"  2" );
         }
     }
 
@@ -180,17 +220,13 @@ public class Zodiac extends Games {
                 userEnterNumberSign = scannerUserInformationNumberSing.nextInt();
             } catch (Exception e) {
                 System.out.println("Something is wrong!!!  Try again.");
-                System.out.println("Choose the number of zodiac sign:" +
-                        "\n| 1.Aquarius | 2.Pisces | 3.Aries | 4.Taurus | 5.Gemini | 6.Cancer" +
-                        " | 7.Leo | 8.Virgo | 9.Libra | 10.Scorpio | 11.Sagittarius | 12.Capricorn |");
+                showTextChooseSign();
                 continue;
             }
 
             if (userEnterNumberSign < 1 || userEnterNumberSign > 12) {
                 System.out.println("The number of zodiac sign is wrong!!!  Try again.");
-                System.out.println("Choose the number of zodiac sign:" +
-                        "\n| 1.Aquarius | 2.Pisces | 3.Aries | 4.Taurus | 5.Gemini | 6.Cancer" +
-                        " | 7.Leo | 8.Virgo | 9.Libra | 10.Scorpio | 11.Sagittarius | 12.Capricorn |");
+                showTextChooseSign();
                 continue;
             }
   //                    System.out.println(userEnterNumberSign);
