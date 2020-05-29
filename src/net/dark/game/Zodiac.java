@@ -8,7 +8,7 @@ import org.json.simple.parser.ParseException;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Iterator;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Zodiac extends Games {
@@ -21,22 +21,45 @@ public class Zodiac extends Games {
     }
 
     private static void begin() {
-//        showWelcomeText();
-//        showTextWhatDoYouWannaKnow();
-//        takeAndCheckUserSolution();
+        showWelcomeText();
+        while(true) {
+            showTextWhatDoYouWannaKnow();
+            int userSolution = takeAndCheckUserSolution();
+            if (userSolution == 1) {
+                System.out.println("The number one doesn't work!!!");
+                continue;
+            } else if (userSolution == 2){
+                showTextChooseSign();
+                userEnterNumberSign();
+                workWithJsonFile();
+                getNumberOfInformation();
+                continue;
+            } else if (userSolution == 3){
+                System.out.println("The number three doesn't work!!!");
+                continue;
+            }else if (userSolution == 0){
+                return;
+            }
+//        // ver 1
 //        showTextBirthday();
 //        showTextDayBirthday();
 //        userEnterDay();
 //        showTextMonthBirthday();
 //        userEnterMonth();
-        // Question  ???????????
+//        transformationFromIntIntoString();
+//        checkDayNumber();
+
+////         Question  ???????????
+
 //        showTextDoYouWannaTryAgain();
 //        System.out.println(checkUserAnswerYesNo(userEnterAnswerYesNo()));
-        // ver 2
-        showTextChooseSign();
-        userEnterNumberSign();
-        showTextOnAstrology(1);
-
+//        // ver 2
+//        showTextChooseSign();
+//        userEnterNumberSign();
+//        workWithJsonFile();
+//        getNumberOfInformation();
+//        //end 2
+        }
     }
 
     private static void showWelcomeText() {
@@ -53,14 +76,14 @@ public class Zodiac extends Games {
     }
 
     private static void showTextWhatDoYouWannaKnow() {
-        System.out.println("Choose the number what you wanna know:" +
-                "\n                   1. FIND YOUR SIGN" +
+        System.out.println("\n Choose the number what you wanna know:" +
+                "\n                   1. FIND YOUR SIGN"+" ***  Sorry but Now it doesn't work" +
                 "\n                   2. INFORMATION ON ASTROLOGY" +
-                "\n                   3. LOVE COMPATIBILITY" +
-                "\n                   4. Exit");
+                "\n                   3. LOVE COMPATIBILITY"+"  ***  Now it's block" +
+                "\n                   0. Exit");
     }
 
-    private static void takeAndCheckUserSolution() {
+    private static int takeAndCheckUserSolution() {
         int userSolutionWhatHeWants;
         while (true) {
             Scanner scannerUserInformationLocation = new Scanner(System.in);
@@ -68,20 +91,22 @@ public class Zodiac extends Games {
                 userSolutionWhatHeWants = scannerUserInformationLocation.nextInt();
             } catch (Exception e) {                                         // What kind of mistake is better to catch?
                 System.out.println("Something is wrong!!!  Try again.");
+                showTextWhatDoYouWannaKnow();
                 continue;
             }
 
-            if (userSolutionWhatHeWants >= 1 & userSolutionWhatHeWants <= 4) {
+            if (userSolutionWhatHeWants >= 0 & userSolutionWhatHeWants <= 3) {
 
             } else {
                 System.out.println("Chose is wrong! Try again.");
+                showTextWhatDoYouWannaKnow();
                 continue;
             }
-            return;
+            return userSolutionWhatHeWants;
         }
     }
 
-    // ********  version 1   ******************************************************************
+    // ********   version 1   ******************************************************************
 
     private static void showTextBirthday() {
         System.out.println("We need to know when is the birthday. ");
@@ -91,8 +116,9 @@ public class Zodiac extends Games {
         System.out.println("Enter the day of birthday:");
     }
 
+    private static int userDayBirthday;
+
     private static void userEnterDay() {
-        int userDayBirthday;
         while (true) {
             Scanner scannerUserInformationDay = new Scanner(System.in);
             try {
@@ -114,8 +140,9 @@ public class Zodiac extends Games {
         System.out.println("Enter the month of birthday:");
     }
 
+    private static int userMonthBirthday;
+
     private static void userEnterMonth() {
-        int userMonthBirthday;
         while (true) {
             Scanner scannerUserInformationBirthday = new Scanner(System.in);
             try {
@@ -130,6 +157,22 @@ public class Zodiac extends Games {
                 continue;
             }
             return;
+        }
+    }
+
+    private static void transformationFromIntIntoString(){
+        Integer dayBirthday = userDayBirthday;
+        String strDayBirthday = dayBirthday.toString();
+
+        Integer monthBirthday = userMonthBirthday;
+        String strMonthBirthday = monthBirthday.toString();
+    }
+
+    private static void checkDayNumber(){
+        if (userDayBirthday<10){
+            System.out.println(userDayBirthday+"  1");
+        }else {
+            System.out.println(userDayBirthday+"  2" );
         }
     }
 
@@ -167,44 +210,44 @@ public class Zodiac extends Games {
                 " | 7.Leo | 8.Virgo | 9.Libra | 10.Scorpio | 11.Sagittarius | 12.Capricorn |");
     }
 
+    private static int userEnterNumberSign;
+
     private static void userEnterNumberSign() {
-        int userEnterNumberSign;
+
         while (true) {
             Scanner scannerUserInformationNumberSing = new Scanner(System.in);
             try {
                 userEnterNumberSign = scannerUserInformationNumberSing.nextInt();
             } catch (Exception e) {
                 System.out.println("Something is wrong!!!  Try again.");
+                showTextChooseSign();
                 continue;
             }
 
             if (userEnterNumberSign < 1 || userEnterNumberSign > 12) {
                 System.out.println("The number of zodiac sign is wrong!!!  Try again.");
+                showTextChooseSign();
                 continue;
             }
+  //                    System.out.println(userEnterNumberSign);
             return;
         }
     }
 
-    private static void showTextOnAstrology(int numberSign) {
+    private static void workWithJsonFile() {
         JSONParser jsonParser = new JSONParser();
-
 
         try {
             FileReader fileReader = new FileReader("ZODIAC SIGNS.json");
             Object object = jsonParser.parse(fileReader);
-            JSONObject jsonObject =(JSONObject) object;
-
-            System.out.println(jsonObject.get("aquarius"));
-
-//            for(Iterator iterator = jsonObject.keySet().iterator(); iterator.hasNext();){
-//                String key = (String) iterator.next();
-//                System.out.println(jsonObject.get(key));
-//            }
 
             JSONArray jsonArray = (JSONArray) object;
-            System.out.println(jsonArray);
-//            parserZodiacSins((JSONObject) object);
+            //           System.out.println(jsonArray);  // Show JSONArray
+
+            //          jsonArray.forEach(emp -> parserZodiacSigns((JSONObject) emp));
+//            jsonArray.forEach(emp -> parserSignNames((JSONObject) emp)); //Creat an array of names
+            jsonArray.forEach(emp -> parserSignsInformation((JSONObject) emp));
+
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -215,25 +258,52 @@ public class Zodiac extends Games {
         }
     }
 
-    private static void parserZodiacSins(JSONObject zodiacJsonObject){}
+    private static void parserZodiacSigns(JSONObject zodiacJsonObject) {
+
+        JSONObject jsonObject = (JSONObject) zodiacJsonObject.get("zodiac");
+
+        String stringSign = (String) jsonObject.get("sign");
+        System.out.println("\n" + stringSign);
+
+        String stringDate = (String) jsonObject.get("date_range");
+        System.out.println(stringDate);
+
+        String stringInformation = (String) jsonObject.get("information");
+        System.out.println(stringInformation);
+    }
+
+    private static ArrayList<String> stringArrayListZodiacNames = new ArrayList<String>();
+
+    private static void parserSignNames(JSONObject zodiacJsonObject) {
+
+        JSONObject jsonObject = (JSONObject) zodiacJsonObject.get("zodiac");
+        String stringSign = (String) jsonObject.get("sign");
+        stringArrayListZodiacNames.add(stringSign);
+    }
+
+    private static void testArray() {
+        System.out.println(stringArrayListZodiacNames);
+
+    }
+
+    private static ArrayList<String> stringArrayListZodiacInformation = new ArrayList<String>();
+
+    private static void parserSignsInformation(JSONObject zodiacJsonObject) {
+
+        JSONObject jsonObject = (JSONObject) zodiacJsonObject.get("zodiac");
+        String stringInformation = (String) jsonObject.get("information");
+        stringArrayListZodiacInformation.add(stringInformation);
+
+    }
+
+    private static void testArrayInformation() {
+        System.out.println("\n" + stringArrayListZodiacInformation);
+    }
+
+    private static void getNumberOfInformation(){
+        System.out.println(stringArrayListZodiacInformation.get(userEnterNumberSign -1));
+    }
+    // ********  ver 2 The end   ******************************************************************
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

@@ -1,5 +1,4 @@
 package net.dark.game;
-
 import java.util.Scanner;
 
 public class ChooseTheGame {
@@ -35,10 +34,10 @@ public class ChooseTheGame {
             }
             while (true) {
                 doYouWannaSolveAgain();
-                int checedUserAnswer = checkUserAnswer(userAnswer());
-                if (checedUserAnswer == 1) {
+                int checkedUserAnswer = checkUserAnswer(userAnswer());
+                if (checkedUserAnswer == 1) {
                     break;
-                } else if (checedUserAnswer == 2) {
+                } else if (checkedUserAnswer == 2) {
                     showGoodByeText();
                     return;
                 } else {
@@ -105,7 +104,7 @@ public class ChooseTheGame {
     }
 
     private static void doYouWannaSolveAgain() {
-        System.out.println("Do you want to play another game? ((Yes = Y) or (No = N))");
+        System.out.println("Do you wanna play the game? ((Yes = Y) or (No = N))");
     }
 
     private static String userAnswer() {
