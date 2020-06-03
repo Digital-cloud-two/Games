@@ -21,23 +21,30 @@ public class Zodiac extends Games {
     }
 
     private static void begin() {
+        workWithJsonFile();
         showWelcomeText();
-        while(true) {
+        while (true) {
             showTextWhatDoYouWannaKnow();
             int userSolution = takeAndCheckUserSolution();
             if (userSolution == 1) {
-                System.out.println("The number one doesn't work!!!");
-                continue;
-            } else if (userSolution == 2){
+                showTextBirthday();
+                while (true) {
+                    if (1 == findSign(userEnterMonthDayBirthday())){
+                        break;
+                    }else {
+                        continue;
+                    }
+                }
+            } else if (userSolution == 2) {
                 showTextChooseSign();
                 userEnterNumberSign();
-                workWithJsonFile();
+//                workWithJsonFile();
                 getNumberOfInformation();
                 continue;
-            } else if (userSolution == 3){
+            } else if (userSolution == 3) {
                 System.out.println("The number three doesn't work!!!");
                 continue;
-            }else if (userSolution == 0){
+            } else if (userSolution == 0) {
                 return;
             }
 //        // ver 1
@@ -76,10 +83,10 @@ public class Zodiac extends Games {
     }
 
     private static void showTextWhatDoYouWannaKnow() {
-        System.out.println("\n Choose the number what you wanna know:" +
-                "\n                   1. FIND YOUR SIGN"+" ***  Sorry but Now it doesn't work" +
+        System.out.println("\nChoose the number what you wanna know:" +
+                "\n                   1. FIND YOUR SIGN" +
                 "\n                   2. INFORMATION ON ASTROLOGY" +
-                "\n                   3. LOVE COMPATIBILITY"+"  ***  Now it's block" +
+                "\n                   3. LOVE COMPATIBILITY" + " ***  Sorry but Now it doesn't work" +
                 "\n                   0. Exit");
     }
 
@@ -109,7 +116,108 @@ public class Zodiac extends Games {
     // ********   version 1   ******************************************************************
 
     private static void showTextBirthday() {
-        System.out.println("We need to know when is the birthday. ");
+        System.out.println("We need to know when the birthday is: ");
+    }
+
+//    private static float userMonthDay;
+
+    private static float userEnterMonthDayBirthday() {
+        while (true) {
+            System.out.println("Please enter the date of birthday in this form: \nMM,DD  ");
+            Scanner scannerUserMonthDay = new Scanner(System.in);
+            float userMonthDay;
+            try {
+                userMonthDay = scannerUserMonthDay.nextFloat();
+            } catch (Exception e) {
+                System.out.println("The date is wrong!!!  Try again");
+                continue;
+            }
+
+            if (userMonthDay < 1.00 || userMonthDay > 12.32) {
+                System.out.println("The date of Birthday is wrong!!! " + userMonthDay +
+                        "\n Try again.");
+                continue;
+            }
+            return userMonthDay;
+        }
+    }
+
+    private static int findSign(float userMonthDay) {
+        if (1.00 < userMonthDay & 1.20 > userMonthDay) {
+            System.out.println(stringArrayListZodiacNames.get(0));
+            return 1;
+        } else if (12.21 < userMonthDay & 12.32 > userMonthDay) {
+            System.out.println(stringArrayListZodiacNames.get(0));
+            return 1;
+        }else if (1.19 < userMonthDay & 1.32 > userMonthDay) {
+            System.out.println(stringArrayListZodiacNames.get(1));
+            return 1;
+        } else if (2.00 < userMonthDay & 2.19 > userMonthDay) {
+            System.out.println(stringArrayListZodiacNames.get(1));
+            return 1;
+        }else if (2.18 < userMonthDay & 2.32 > userMonthDay) {
+            System.out.println(stringArrayListZodiacNames.get(2));
+            return 1;
+        } else if (3.00 < userMonthDay & 3.21 > userMonthDay) {
+            System.out.println(stringArrayListZodiacNames.get(2));
+            return 1;
+        }else if (3.22 < userMonthDay & 3.32 > userMonthDay) {
+            System.out.println(stringArrayListZodiacNames.get(3));
+            return 1;
+        } else if (4.00 < userMonthDay & 4.20 > userMonthDay) {
+            System.out.println(stringArrayListZodiacNames.get(3));
+            return 1;
+        }else if (4.19 < userMonthDay & 4.32 > userMonthDay) {
+            System.out.println(stringArrayListZodiacNames.get(4));
+            return 1;
+        } else if (5.00 < userMonthDay & 5.20 > userMonthDay) {
+            System.out.println(stringArrayListZodiacNames.get(4));
+            return 1;
+        }else if (5.20 < userMonthDay & 5.32 > userMonthDay) {
+            System.out.println(stringArrayListZodiacNames.get(5));
+            return 1;
+        } else if (6.00 < userMonthDay & 6.21 > userMonthDay) {
+            System.out.println(stringArrayListZodiacNames.get(5));
+            return 1;
+        }else if (6.20 < userMonthDay & 6.32 > userMonthDay) {
+            System.out.println(stringArrayListZodiacNames.get(6));
+            return 1;
+        } else if (7.00 < userMonthDay & 7.23 > userMonthDay) {
+            System.out.println(stringArrayListZodiacNames.get(6));
+            return 1;
+        }else if (7.22 < userMonthDay & 7.32 > userMonthDay) {
+            System.out.println(stringArrayListZodiacNames.get(7));
+            return 1;
+        } else if (8.00 < userMonthDay & 8.23 > userMonthDay) {
+            System.out.println(stringArrayListZodiacNames.get(7));
+            return 1;
+        }else if (8.22 < userMonthDay & 8.32 > userMonthDay) {
+            System.out.println(stringArrayListZodiacNames.get(8));
+            return 1;
+        } else if (9.00 < userMonthDay & 9.23 > userMonthDay) {
+            System.out.println(stringArrayListZodiacNames.get(8));
+            return 1;
+        }else if (9.22 < userMonthDay & 9.32 > userMonthDay) {
+            System.out.println(stringArrayListZodiacNames.get(9));
+            return 1;
+        } else if (10.00 < userMonthDay & 10.23 > userMonthDay) {
+            System.out.println(stringArrayListZodiacNames.get(9));
+            return 1;
+        }else if (10.22 < userMonthDay & 10.32 > userMonthDay) {
+            System.out.println(stringArrayListZodiacNames.get(10));
+            return 1;
+        } else if (11.00 < userMonthDay & 11.22 > userMonthDay) {
+            System.out.println(stringArrayListZodiacNames.get(10));
+            return 1;
+        }else if (11.21 < userMonthDay & 11.32 > userMonthDay) {
+            System.out.println(stringArrayListZodiacNames.get(11));
+            return 1;
+        } else if (12.00 < userMonthDay & 12.22 > userMonthDay) {
+            System.out.println(stringArrayListZodiacNames.get(11));
+            return 1;
+        }else{
+            return 0;
+        }
     }
 
     private static void showTextDayBirthday() {
@@ -160,7 +268,7 @@ public class Zodiac extends Games {
         }
     }
 
-    private static void transformationFromIntIntoString(){
+    private static void transformationFromIntIntoString() {
         Integer dayBirthday = userDayBirthday;
         String strDayBirthday = dayBirthday.toString();
 
@@ -168,11 +276,11 @@ public class Zodiac extends Games {
         String strMonthBirthday = monthBirthday.toString();
     }
 
-    private static void checkDayNumber(){
-        if (userDayBirthday<10){
-            System.out.println(userDayBirthday+"  1");
-        }else {
-            System.out.println(userDayBirthday+"  2" );
+    private static void checkDayNumber() {
+        if (userDayBirthday < 10) {
+            System.out.println(userDayBirthday + "  1");
+        } else {
+            System.out.println(userDayBirthday + "  2");
         }
     }
 
@@ -229,7 +337,7 @@ public class Zodiac extends Games {
                 showTextChooseSign();
                 continue;
             }
-  //                    System.out.println(userEnterNumberSign);
+            //                    System.out.println(userEnterNumberSign);
             return;
         }
     }
@@ -245,7 +353,7 @@ public class Zodiac extends Games {
             //           System.out.println(jsonArray);  // Show JSONArray
 
             //          jsonArray.forEach(emp -> parserZodiacSigns((JSONObject) emp));
-//            jsonArray.forEach(emp -> parserSignNames((JSONObject) emp)); //Creat an array of names
+            jsonArray.forEach(emp -> parserSignNames((JSONObject) emp)); //Creat an array of names
             jsonArray.forEach(emp -> parserSignsInformation((JSONObject) emp));
 
 
@@ -300,8 +408,8 @@ public class Zodiac extends Games {
         System.out.println("\n" + stringArrayListZodiacInformation);
     }
 
-    private static void getNumberOfInformation(){
-        System.out.println(stringArrayListZodiacInformation.get(userEnterNumberSign -1));
+    private static void getNumberOfInformation() {
+        System.out.println(stringArrayListZodiacInformation.get(userEnterNumberSign - 1));
     }
     // ********  ver 2 The end   ******************************************************************
 
