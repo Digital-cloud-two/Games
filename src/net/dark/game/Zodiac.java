@@ -144,76 +144,76 @@ public class Zodiac extends Games {
 
     private static int findSign(float userMonthDay) {
         if (1.00 < userMonthDay & 1.20 > userMonthDay) {
-            System.out.println(stringArrayListZodiacNames.get(0));
+            System.out.println(stringArrayListZodiacNames.get(11));
             return 1;
         } else if (12.21 < userMonthDay & 12.32 > userMonthDay) {
-            System.out.println(stringArrayListZodiacNames.get(0));
+            System.out.println(stringArrayListZodiacNames.get(11));
             return 1;
         }else if (1.19 < userMonthDay & 1.32 > userMonthDay) {
-            System.out.println(stringArrayListZodiacNames.get(1));
+            System.out.println(stringArrayListZodiacNames.get(0));
             return 1;
         } else if (2.00 < userMonthDay & 2.19 > userMonthDay) {
-            System.out.println(stringArrayListZodiacNames.get(1));
+            System.out.println(stringArrayListZodiacNames.get(0));
             return 1;
         }else if (2.18 < userMonthDay & 2.32 > userMonthDay) {
-            System.out.println(stringArrayListZodiacNames.get(2));
+            System.out.println(stringArrayListZodiacNames.get(1));
             return 1;
         } else if (3.00 < userMonthDay & 3.21 > userMonthDay) {
-            System.out.println(stringArrayListZodiacNames.get(2));
+            System.out.println(stringArrayListZodiacNames.get(1));
             return 1;
         }else if (3.22 < userMonthDay & 3.32 > userMonthDay) {
-            System.out.println(stringArrayListZodiacNames.get(3));
+            System.out.println(stringArrayListZodiacNames.get(2));
             return 1;
         } else if (4.00 < userMonthDay & 4.20 > userMonthDay) {
-            System.out.println(stringArrayListZodiacNames.get(3));
+            System.out.println(stringArrayListZodiacNames.get(2));
             return 1;
         }else if (4.19 < userMonthDay & 4.32 > userMonthDay) {
-            System.out.println(stringArrayListZodiacNames.get(4));
+            System.out.println(stringArrayListZodiacNames.get(3));
             return 1;
         } else if (5.00 < userMonthDay & 5.20 > userMonthDay) {
-            System.out.println(stringArrayListZodiacNames.get(4));
+            System.out.println(stringArrayListZodiacNames.get(3));
             return 1;
         }else if (5.20 < userMonthDay & 5.32 > userMonthDay) {
-            System.out.println(stringArrayListZodiacNames.get(5));
+            System.out.println(stringArrayListZodiacNames.get(4));
             return 1;
         } else if (6.00 < userMonthDay & 6.21 > userMonthDay) {
-            System.out.println(stringArrayListZodiacNames.get(5));
+            System.out.println(stringArrayListZodiacNames.get(4));
             return 1;
         }else if (6.20 < userMonthDay & 6.32 > userMonthDay) {
-            System.out.println(stringArrayListZodiacNames.get(6));
+            System.out.println(stringArrayListZodiacNames.get(5));
             return 1;
         } else if (7.00 < userMonthDay & 7.23 > userMonthDay) {
-            System.out.println(stringArrayListZodiacNames.get(6));
+            System.out.println(stringArrayListZodiacNames.get(5));
             return 1;
         }else if (7.22 < userMonthDay & 7.32 > userMonthDay) {
-            System.out.println(stringArrayListZodiacNames.get(7));
+            System.out.println(stringArrayListZodiacNames.get(6));
             return 1;
         } else if (8.00 < userMonthDay & 8.23 > userMonthDay) {
-            System.out.println(stringArrayListZodiacNames.get(7));
+            System.out.println(stringArrayListZodiacNames.get(6));
             return 1;
         }else if (8.22 < userMonthDay & 8.32 > userMonthDay) {
-            System.out.println(stringArrayListZodiacNames.get(8));
+            System.out.println(stringArrayListZodiacNames.get(7));
             return 1;
         } else if (9.00 < userMonthDay & 9.23 > userMonthDay) {
-            System.out.println(stringArrayListZodiacNames.get(8));
+            System.out.println(stringArrayListZodiacNames.get(7));
             return 1;
         }else if (9.22 < userMonthDay & 9.32 > userMonthDay) {
-            System.out.println(stringArrayListZodiacNames.get(9));
+            System.out.println(stringArrayListZodiacNames.get(8));
             return 1;
         } else if (10.00 < userMonthDay & 10.23 > userMonthDay) {
-            System.out.println(stringArrayListZodiacNames.get(9));
+            System.out.println(stringArrayListZodiacNames.get(8));
             return 1;
         }else if (10.22 < userMonthDay & 10.32 > userMonthDay) {
-            System.out.println(stringArrayListZodiacNames.get(10));
+            System.out.println(stringArrayListZodiacNames.get(9));
             return 1;
         } else if (11.00 < userMonthDay & 11.22 > userMonthDay) {
-            System.out.println(stringArrayListZodiacNames.get(10));
+            System.out.println(stringArrayListZodiacNames.get(9));
             return 1;
         }else if (11.21 < userMonthDay & 11.32 > userMonthDay) {
-            System.out.println(stringArrayListZodiacNames.get(11));
+            System.out.println(stringArrayListZodiacNames.get(10));
             return 1;
         } else if (12.00 < userMonthDay & 12.22 > userMonthDay) {
-            System.out.println(stringArrayListZodiacNames.get(11));
+            System.out.println(stringArrayListZodiacNames.get(10));
             return 1;
         }else{
             return 0;
@@ -409,7 +409,7 @@ public class Zodiac extends Games {
     }
 
     private static void getNumberOfInformation() {
-        System.out.println(stringArrayListZodiacInformation.get(userEnterNumberSign - 1));
+        System.out.println(stringArrayListZodiacInformation.get(userEnterNumberSign -1));
     }
     // ********  ver 2 The end   ******************************************************************
 
