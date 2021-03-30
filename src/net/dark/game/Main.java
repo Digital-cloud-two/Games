@@ -3,7 +3,7 @@ package net.dark.game;
 public class Main {
     public static void main(String[] args) {
         WriteJsonToFileInJava.methodWriteJSONtoFileInJava();
-
+// test a long time ago
         MagicBall.setStringArrayList("The answer is:   Very doubtful");
         MagicBall.setStringArrayList("The answer is:   Outlook is good");
         MagicBall.setStringArrayList("The answer is:   Outlook is not very good");
